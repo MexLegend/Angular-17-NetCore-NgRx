@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Armando",
+      "email": "armando@gmail.com",
+      "phone": "3481036143"
+    },
+    {
+      "id": 2,
+      "name": "Brenda",
+      "email": "brenda@gmail.com",
+      "phone": "3481037845"
+    },
+    {
+      "id": 3,
+      "name": "Michelle",
+      "email": "michelle@gmail.com",
+      "phone": "3481074852"
+    }
+  ]
+}
