@@ -1,6 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { ICustomerState } from './customer.state';
-import { ICustomer } from '@models/customer.interface';
 
 const getcustomerstate = createFeatureSelector<ICustomerState>('customer');
 
@@ -9,10 +8,17 @@ export const selectIsLoadingCustomers = createSelector(
   (state) => state.isLoading
 );
 
-export const selectCutomerList = createSelector(getcustomerstate, (state) => {
-  return state.customers as ICustomer[];
+export const selectCutomersList = createSelector(getcustomerstate, (state) => {
+  return state.customers!;
 });
 
+export const selectCutomersLength = createSelector(
+  getcustomerstate,
+  (state) => {
+    return state.customers?.length;
+  }
+);
+
 export const selectOneCustomer = createSelector(getcustomerstate, (state) => {
-  return state.customers as ICustomer;
+  return state.customer!;
 });

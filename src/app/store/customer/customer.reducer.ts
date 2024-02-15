@@ -10,6 +10,7 @@ import { ICustomer } from '@models/customer.interface';
 
 export const initialCustomerState: ICustomerState = {
   customers: null,
+  customer: null,
   errorMessage: null,
   isLoading: false,
 };
@@ -27,25 +28,25 @@ const _customerReducer = createReducer(
   on(getCustomerSuccessAction, (state, action) => {
     return {
       ...state,
-      customers: action.customer,
+      customer: action.customer,
       isLoading: false,
     };
   }),
   on(loadCustomerFailAction, (state, action) => {
     return {
       ...state,
-      customers: [],
+      customer: null,
       errormessage: action.errorMessage,
       isLoading: false,
     };
   }),
   on(deleteCustomerSuccessAction, (state, action) => {
-    const _newdata = (state.customers as ICustomer[])!.filter(
+    const _newCustomersList = (state.customers as ICustomer[])!.filter(
       (o) => o.id != action.id
     );
     return {
       ...state,
-      customers: _newdata,
+      customers: _newCustomersList,
       errormessage: null,
       isLoading: false,
     };

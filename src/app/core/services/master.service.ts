@@ -19,28 +19,20 @@ export class MasterService {
     return this._http.get<ICustomer[]>(URL_CUSTOMERS);
   }
 
-  getOneCustomerById(userId: string) {
-    return this._http.get<ICustomer>(`${URL_CUSTOMERS}/${userId}`);
+  getOneCustomerById(customerId: string) {
+    return this._http.get<ICustomer>(`${URL_CUSTOMERS}/${customerId}`);
   }
 
   createCustomer(customer: ICustomer) {
-    return this._http.post(
-      'https://localhost:7143/api/Customer/Create',
-      customer
-    );
+    return this._http.post(URL_CUSTOMERS, customer);
   }
 
   updateCustomer(customer: ICustomer) {
-    return this._http.put(
-      'https://localhost:7143/api/Customer/Update?code=' + customer.id,
-      customer
-    );
+    return this._http.put(`${URL_CUSTOMERS}/${customer.id}`, customer);
   }
 
-  deleteCustomer(code: string) {
-    return this._http.delete(
-      'https://localhost:7143/api/Customer/Remove?code=' + code
-    );
+  deleteCustomer(customerId: string) {
+    return this._http.delete(`${URL_CUSTOMERS}/${customerId}`);
   }
 
   haveAccess() {

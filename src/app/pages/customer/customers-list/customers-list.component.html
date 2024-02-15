@@ -1,5 +1,5 @@
 @if (dataSource) {
-<mat-card style="margin: 3rem;" class="mat-elevation-z8">
+<mat-card style="margin: 3rem" class="mat-elevation-z8">
   <mat-card-header>
     <button routerLink="/customer/add" mat-raised-button color="primary">
       Add Customer
@@ -17,16 +17,16 @@
           @if (column !== 'action') {
           {{ row[column] }}
           } @else {
-          <div style="display: flex; gap: 4px;">
+          <div style="display: flex; gap: 4px">
             <button
-              (click)="editcustomer(row.code)"
+              (click)="editcustomer(row.id)"
               mat-raised-button
               color="primary"
             >
               Edit
             </button>
             <button
-              (click)="deletecustomer(row.code)"
+              (click)="deletecustomer(row.id)"
               mat-raised-button
               color="accent"
             >
